@@ -1,2 +1,2 @@
-# smart-cart-for-a-grocery-store-with-redux
+# cart-with-redux
  redux practice
