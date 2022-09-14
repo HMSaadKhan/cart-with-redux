@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import React from "react";
 import CartItems from "./CartItems";
 import axios from "axios";
-import IsLoggedin from "../../Authentication/IsLoggedIn";
 import { useContext } from "react";
 import { CartCountContext } from "../../ContextAPIs/CartChanger";
 export default function Cart() {
@@ -30,7 +29,7 @@ export default function Cart() {
   useEffect(cartItems, []);
 
   return (
-    <IsLoggedin>
+    <>
       <Typography
         ml={2}
         mt={2}
@@ -99,6 +98,6 @@ export default function Cart() {
           </Card>
         </Box>
       </Box>
-    </IsLoggedin>
+    </>
   );
 }

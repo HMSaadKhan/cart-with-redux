@@ -7,7 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { CookiesProvider } from "react-cookie";
 import TopBar from "./Component/Topbar/TopBar";
 import Products from "./Pages/Products/Products";
-import Login from "./Pages/Login/Login";
+
 import Cart from "./Pages/Cart/Cart";
 import CartCount from "./ContextAPIs/CartChanger";
 
@@ -20,7 +20,6 @@ function App() {
         <Routes>
           <Route path="/product/:id" element={<Products />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/login" element={<Login />} />
           <Route path="/" element={<Home />} />
         </Routes>
       </Router>

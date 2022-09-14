@@ -8,7 +8,7 @@ export default function CategoryCard({ category }) {
       <Card
         sx={{ backgroundColor: "#fafafa", cursor: "pointer" }}
         onClick={() => {
-          navigate("product/" + category._id);
+          navigate("product/" + category);
         }}
       >
         <CardContent>
@@ -20,7 +20,7 @@ export default function CategoryCard({ category }) {
               noWrap
               sx={{ fontWeight: "bold", fontSize: "20px" }}
             >
-              {category.name}
+              {category}
             </Typography>
             <Typography
               mt={2}

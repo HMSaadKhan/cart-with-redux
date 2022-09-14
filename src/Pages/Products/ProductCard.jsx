@@ -17,26 +17,26 @@ export default function ProductCard(props) {
   const cartCount = useContext(CartCountContext);
   const { product } = props;
   const addtocart = () => {
-    axios
-      .post("http://localhost:3000/api/cart/" + product._id)
-      .then((data) => {
-        console.log(data);
-        cartCount.setChanger(data);
-        toast.success(data.data, {
-          position: toast.POSITION.BOTTOM_LEFT,
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-        toast.error(error.response.data, {
-          position: toast.POSITION.BOTTOM_LEFT,
-        });
-      });
+    // axios
+    //   .post("http://localhost:3000/api/cart/" + product._id)
+    //   .then((data) => {
+    //     console.log(data);
+    //     cartCount.setChanger(data);
+    //     toast.success(data.data, {
+    //       position: toast.POSITION.BOTTOM_LEFT,
+    //     });
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //     toast.error(error.response.data, {
+    //       position: toast.POSITION.BOTTOM_LEFT,
+    //     });
+    //   });
   };
 
   return (
     <Box sx={{}}>
-      <Card sx={{ width: "200px", margin: 10 }}>
+      <Card sx={{ width: "200px", margin: 5 }}>
         <Box
           sx={{
             display: "flex ",
@@ -46,17 +46,18 @@ export default function ProductCard(props) {
         >
           <Box>
             <CardMedia
-              //  className={classes.media}
+              sx={{ height: 150, width: 150, objectFit: "contain" }}
+              //className={classes.media}
               component="img"
-              image={product.images}
-              title={product.name}
+              image={product.image}
+              title={product.title}
             />
           </Box>
         </Box>
         <CardContent>
-          <Box sx={{ maxHeight: 50 }}>
+          <Box sx={{ height: 50 }}>
             <Typography noWrap sx={{ fontSize: "18px" }}>
-              {product.name}
+              {product.title}
             </Typography>
           </Box>
 

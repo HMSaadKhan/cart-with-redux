@@ -5,16 +5,16 @@ import axios from "axios";
 // import { NameBar } from "../../Styles/NameBar";
 import ProductCard from "./ProductCard";
 import { useParams } from "react-router-dom";
-import IsLoggedin from "../../Authentication/IsLoggedIn";
 
 const Products = (props) => {
   const product = useParams();
+  console.log(product);
 
   const [products, setProducts] = useState([]);
 
   const getProductsbyCategory = () => {
     axios
-      .get("http://localhost:3000/api/products/" + product.id)
+      .get("https://fakestoreapi.com/products/category/" + product.id)
       .then((data) => {
         console.log(data);
         setProducts(data.data);
@@ -26,7 +26,7 @@ const Products = (props) => {
   useEffect(getProductsbyCategory, [product.id]);
 
   return (
-    <IsLoggedin>
+    <>
       <Typography
         ml={2}
         mt={2}
@@ -34,10 +34,16 @@ const Products = (props) => {
         sx={{ fontWeight: "bold", cursor: "pointer" }}
         variant="h4"
       >
-        {products[0]?.category.name}
+        {product.id}
       </Typography>
       <Box
-        sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexWrap: "wrap",
+          width: "100%",
+        }}
       >
         {products.length > 0 ? (
           <>
@@ -53,7 +59,7 @@ const Products = (props) => {
           <></>
         )}
       </Box>
-    </IsLoggedin>
+    </>
   );
 };
 

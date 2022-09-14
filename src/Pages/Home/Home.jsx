@@ -1,18 +1,28 @@
 import { Box } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import CategoryCard from "./CategoryCard";
+import ProductCard from "../Products/ProductCard";
 import axios from "axios";
-import IsLoggedin from "../../Authentication/IsLoggedIn";
 
 export default function Home() {
   const [categories, setcategories] = useState([]);
+  const [products, setproducts] = useState([]);
 
   const getCategories = () => {
     axios
-      .get("http://localhost:3000/api/categories/")
+      .get("https://fakestoreapi.com/products/categories/")
       .then((data) => {
         console.log(data);
         setcategories(data.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    axios
+      .get("https://fakestoreapi.com/products/")
+      .then((data) => {
+        console.log(data);
+        setproducts(data.data);
       })
       .catch((error) => {
         console.log(error);
@@ -21,11 +31,10 @@ export default function Home() {
   useEffect(getCategories, []);
 
   return (
-    <IsLoggedin>
+    <>
       <Box p={5} m={2}>
         <Box
           sx={{
-            width: "100%",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -33,7 +42,6 @@ export default function Home() {
         >
           <Box
             sx={{
-              width: "40%",
               display: "flex",
               flexWrap: "wrap",
               alignItems: "center",
@@ -49,7 +57,30 @@ export default function Home() {
             })}
           </Box>
         </Box>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            flexWrap: "wrap",
+            width: "100%",
+          }}
+        >
+          {products.length > 0 ? (
+            <>
+              {products.map((product) => {
+                return (
+                  <Box key={product._id}>
+                    <ProductCard product={product} />
+                  </Box>
+                );
+              })}
+            </>
+          ) : (
+            <></>
+          )}
+        </Box>
       </Box>
-    </IsLoggedin>
+    </>
   );
 }

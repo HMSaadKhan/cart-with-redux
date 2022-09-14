@@ -16,8 +16,8 @@ const Colors = {
   dove_gray: "#d5d5d5",
   buyerSite: "#ba6a62",
   AdminSite: "#73c2fb",
-  bgSite: "#9ca677",
-  textColor: "#ffb12a",
+  bgSite: "#ff781f",
+  textColor: "#475161",
   ///////////////
   // Solid Color
   ///////////////

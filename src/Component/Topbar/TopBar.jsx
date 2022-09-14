@@ -13,7 +13,7 @@ const Topbar = (props) => {
   const cartCount = useContext(CartCountContext);
   return (
     <Box>
-      <AppBar sx={{ background: "#9ca677", position: "relative" }}>
+      <AppBar sx={{ position: "relative" }}>
         <Toolbar
           sx={{
             display: "flex",
@@ -30,7 +30,7 @@ const Topbar = (props) => {
                 navigate("/");
               }}
             >
-              Grocery App
+              Smart Store
             </Typography>
           </Box>
           <Box>
@@ -43,24 +43,6 @@ const Topbar = (props) => {
                 <ShoppingCartOutlinedIcon />
               </Badge>
             </IconButton>
-            {localStorage.getItem("token") ? (
-              <IconButton
-                onClick={() => {
-                  localStorage.removeItem("token");
-                  window.location.reload();
-                }}
-              >
-                <LogoutIcon />
-              </IconButton>
-            ) : (
-              <IconButton
-                onClick={() => {
-                  navigate("/login");
-                }}
-              >
-                <LoginIcon />
-              </IconButton>
-            )}
           </Box>
         </Toolbar>
       </AppBar>
