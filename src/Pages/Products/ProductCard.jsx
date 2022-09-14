@@ -76,7 +76,7 @@ export default function ProductCard(props) {
                   color: "#ba6a62",
                 }}
               >
-                PKR:{product.price}
+                $:{product.price}
               </Typography>
             </Box>
             <Box>
